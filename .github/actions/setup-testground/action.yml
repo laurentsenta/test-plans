@@ -9,7 +9,6 @@ runs:
       with:
         path: testground
         repository: testground/testground
-        ref: feat/builder-config-in-composition
 
     - name: Setup Go
       uses: actions/setup-go@v2
