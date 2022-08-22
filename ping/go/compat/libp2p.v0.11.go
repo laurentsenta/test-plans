@@ -9,6 +9,7 @@ import (
 
 	"github.com/libp2p/go-libp2p"
 	"github.com/libp2p/go-libp2p-core/host"
+	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p/config"
 
 	noise "github.com/libp2p/go-libp2p-noise"
@@ -33,3 +34,5 @@ func getSecurityByName(secureChannel string) libp2p.Option {
 	}
 	panic(fmt.Sprintf("unknown secure channel: %s", secureChannel))
 }
+
+type AddrInfo peer.AddrInfo
