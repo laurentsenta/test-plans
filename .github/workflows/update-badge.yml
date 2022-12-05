@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Interop Dashboard"]
     types: [completed]
-    branches: [master]
+    branches: [master, "feat/issue-55-simple-dashboard"]
 
 defaults:
   run:
