@@ -2,7 +2,7 @@ name: Update Badge
 
 on:
   workflow_run:
-    workflows: [Interop Dashboard]
+    workflows: ["Interop Dashboard"]
     types: [completed]
     branches: [master]
 
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: pl-strflt/job-summary-url-action@v1
         with:
-          workflow: ping-interop-dashboard.yml # ${{ github.event.workflow.path }}
+          workflow: dashboard.yml # ${{ github.event.workflow.path }}
           run_id: ${{ github.event.workflow_run.id }}
           run_attempt: ${{ github.event.workflow_run.run_attempt }}
           job: run-libp2p-test-plans
@@ -31,7 +31,7 @@ jobs:
           git config user.name "github-actions[bot]"
       - run: |
           in='\[\!\[Interop Dashboard\]\(https\:\/\/github\.com\/libp2p\/test\-plans\/actions\/workflows\/ping\-interop\-dashboard\.yml\/badge\.svg\?branch\=master\)\]\(.*\)'
-          out="[![Interop Dashboard](https://github.com/libp2p/test-plans/actions/workflows/ping-interop-dashboard.yml/badge.svg?branch=master)](${env.GITHUB_JOB_SUMMARY_URL})"
+          out="[![Interop Dashboard](https://github.com/libp2p/test-plans/actions/workflows/dashboard.yml/badge.svg?branch=master)](${env.GITHUB_JOB_SUMMARY_URL})"
           sed -i '' '#${in}#{out}#' README.md
       - run: |
           git diff --exit-code
