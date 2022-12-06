@@ -29,6 +29,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./test-plans/${{ env.TEST_PLAN_DIR }}/package-lock.json
       - run: cd ./test-plans/${{ env.TEST_PLAN_DIR }}
+      - name: Install DSL deps
+        working-directory: ./test-plans/dsl/
+        run: npm ci
       - name: Install deps
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: npm ci
