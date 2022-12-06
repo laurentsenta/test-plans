@@ -24,9 +24,10 @@ jobs:
           repository: ${{ env.TEST_PLAN_REPO }}
           ref: ${{ env.TEST_PLAN_BRANCH }}
       - uses: actions/setup-node@v3
-        node-version: 17
-        cache: 'npm'
-        cache-dependency-path: subdir/package-lock.json
+        with:
+          node-version: 17
+          cache: 'npm'
+          cache-dependency-path: subdir/package-lock.json
       - run: cd ./test-plans/${{ env.TEST_PLAN_DIR }}
       - run: npm ci
       - name: setup testground
