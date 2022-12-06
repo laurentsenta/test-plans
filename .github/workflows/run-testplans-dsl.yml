@@ -24,8 +24,11 @@ jobs:
           repository: ${{ env.TEST_PLAN_REPO }}
           ref: ${{ env.TEST_PLAN_BRANCH }}
       - uses: actions/setup-node@v3
+          node-version: 17
+          cache: 'npm'
+          cache-dependency-path: subdir/package-lock.json
       - run: cd ./test-plans/${{ env.TEST_PLAN_DIR }}
-      - uses: ipfs/aegir/actions/cache-node-modules@master
+      - run: npm ci
       - name: setup testground
         uses: ./test-plans/.github/actions/setup-testground
       - name: Run the test
