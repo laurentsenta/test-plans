@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 17
           cache: 'npm'
-          cache-dependency-path: subdir/package-lock.json
+          cache-dependency-path: ./test-plans/${{ env.TEST_PLAN_DIR }}/package-lock.json
       - run: cd ./test-plans/${{ env.TEST_PLAN_DIR }}
       - run: npm ci
       - name: setup testground
