@@ -42,7 +42,7 @@ jobs:
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: make
       - name: Run the test
-        timeout-minutes: 40
+        timeout-minutes: 120
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: PATH=~/testground:$PATH npm run test
       - name: Print the results
