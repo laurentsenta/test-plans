@@ -1,8 +1,8 @@
-import gov024 from "./go/v0.24/image.json"
+// import gov024 from "./go/v0.24/image.json"
 import gov023 from "./go/v0.23/image.json"
 import gov022 from "./go/v0.22/image.json"
-import rustv049 from "./rust/v0.49/image.json"
-import rustv050 from "./rust/v0.50/image.json"
+// import rustv049 from "./rust/v0.49/image.json"
+// import rustv050 from "./rust/v0.50/image.json"
 
 export type Version = {
     id: string,
