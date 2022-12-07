@@ -34,11 +34,20 @@ jobs:
       - name: Install deps
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: npm ci
+      - name: Debug
+        run: ls
 
       - name: Checkout testground
         uses: actions/checkout@v2
         with:
           path: ./testground
+
+      - name: Debug
+        working-directory: ./test-plans
+        run: ls
+      - name: Debug
+        working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
+        run: ls
 
       - name: Setup Go
         uses: actions/setup-go@v3
@@ -46,6 +55,7 @@ jobs:
           cache: true
           go-version-file: './testground/go.mod'
           cache-dependency-path: ./testground/go.sum
+
       - name: Build testground
         working-directory: ./testground
         run: go build -o testground main.go
