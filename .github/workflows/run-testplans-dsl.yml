@@ -41,6 +41,8 @@ jobs:
         # run: go build -o testground main.go
       - name: Print env
         run: env
+      - name: Testground help
+        run: testground --help
       - name: where is testground
         run: which testground
       - name: Build images
