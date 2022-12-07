@@ -40,6 +40,10 @@ jobs:
         run: make
       - name: setup testground
         uses: ./test-plans/.github/actions/setup-testground
+      - name: Print env
+        run: env
+      - name: where is testground
+        run: which testground
       - name: Run the test
         timeout-minutes: 6
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/

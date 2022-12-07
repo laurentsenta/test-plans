@@ -31,7 +31,6 @@ export async function run(testplans: dsl.TestPlans) {
     // Start testground daemon in the background
     const testground = spawn('testground', ['daemon'], {
         env: {
-
             "TESTGROUND_HOME": dir,
             "PATH": env["PATH"]
         },
