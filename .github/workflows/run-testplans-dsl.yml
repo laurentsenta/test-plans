@@ -43,6 +43,9 @@ jobs:
           path: ./testground
 
       - name: Debug
+        run: ls
+
+      - name: Debug
         working-directory: ./test-plans
         run: ls
       - name: Debug
