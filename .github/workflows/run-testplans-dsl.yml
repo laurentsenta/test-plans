@@ -34,8 +34,20 @@ jobs:
       - name: Install deps
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: npm ci
-      - name: setup testground
-        uses: ./test-plans/.github/actions/setup-testground
+
+      - name: Checkout testground
+        if: ${{ inputs.testground_ref != 'edge' }}
+        uses: actions/checkout@v2
+        with:
+          path: testground
+
+      - name: Setup Go
+        if: ${{ inputs.testground_ref != 'edge' }}
+        uses: actions/setup-go@v3
+        with:
+          cache: true
+          go-version-file: 'testground/go.mod'
+          cache-dependency-path: testground/go.sum
       - name: Build testground
         working-directory: ./testground
         run: go build -o testground main.go
