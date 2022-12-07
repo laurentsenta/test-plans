@@ -36,18 +36,16 @@ jobs:
         run: npm ci
 
       - name: Checkout testground
-        if: ${{ inputs.testground_ref != 'edge' }}
         uses: actions/checkout@v2
         with:
-          path: testground
+          path: ./testground
 
       - name: Setup Go
-        if: ${{ inputs.testground_ref != 'edge' }}
         uses: actions/setup-go@v3
         with:
           cache: true
-          go-version-file: 'testground/go.mod'
-          cache-dependency-path: testground/go.sum
+          go-version-file: './testground/go.mod'
+          cache-dependency-path: ./testground/go.sum
       - name: Build testground
         working-directory: ./testground
         run: go build -o testground main.go
