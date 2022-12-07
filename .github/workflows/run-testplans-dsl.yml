@@ -28,7 +28,6 @@ jobs:
           node-version: 17
           cache: 'npm'
           cache-dependency-path: ./test-plans/${{ env.TEST_PLAN_DIR }}/package-lock.json
-      - run: cd ./test-plans/${{ env.TEST_PLAN_DIR }}
       - name: Install DSL deps
         working-directory: ./test-plans/dsl/
         run: npm ci
@@ -37,9 +36,9 @@ jobs:
         run: npm ci
       - name: setup testground
         uses: ./test-plans/.github/actions/setup-testground
-      - name: Build testground
-        working-directory: ./testground
-        run: go build -o testground main.go
+      # - name: Build testground
+        # working-directory: ./testground
+        # run: go build -o testground main.go
       - name: Print env
         run: env
       - name: where is testground
