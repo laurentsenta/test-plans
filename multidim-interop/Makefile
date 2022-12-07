@@ -6,4 +6,5 @@ $(GO_SUBDIRS):
 rust/.:
 	$(MAKE) -C $@
 
-.PHONY: $(GO_SUBDIRS) all
+
+.PHONY: $(GO_SUBDIRS) rust/.
