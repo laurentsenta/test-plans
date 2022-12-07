@@ -38,12 +38,14 @@ jobs:
         uses: ./test-plans/.github/actions/setup-testground
       - name: Testground help
         run: testground --help
-      # - name: where is testground
-      #   run: which testground
       - name: Build images
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: make
       - name: Run the test
-        timeout-minutes: 6
+        timeout-minutes: 20
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: PATH=~/testground:$PATH npm run test
+      - name: Print the results
+        timeout-minutes: 20
+        working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
+        run: cat results.csv
