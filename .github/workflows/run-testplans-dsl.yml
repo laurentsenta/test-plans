@@ -51,12 +51,14 @@ jobs:
       - name: Debug
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: ls
+      - name: Debug
+        working-directory: ./testground
 
       - name: Setup Go
         uses: actions/setup-go@v3
         with:
           cache: true
-          go-version-file: './testground/go.mod'
+          go-version-file: ./testground/go.mod
           cache-dependency-path: ./testground/go.sum
 
       - name: Build testground
