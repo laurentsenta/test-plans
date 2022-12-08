@@ -47,4 +47,4 @@ jobs:
         run: PATH=~/testground:$PATH npm run test
       - name: Print the results
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
-        run: cat results.csv
+        run: cat results.csv >> $GITHUB_STEP_SUMMARY
