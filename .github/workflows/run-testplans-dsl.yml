@@ -48,3 +48,18 @@ jobs:
       - name: Print the results
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: cat results.csv >> $GITHUB_STEP_SUMMARY
+      - name: exit based on results
+        run: |
+          if grep -q -E '(fail|cancel)' result.csv; then
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: testground-output
+          path: |
+            ~/testground/
+            ~/test-plans/result.tgz
+            ${{env.COMPOSITION_FILE}}
+            testground.*
+            test-plans/*.out
