@@ -41,9 +41,9 @@ jobs:
       - name: Build images
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: make
-      - name: Setup tmate session
-        if: ${{ always() }}
-        uses: mxschmitt/action-tmate@v3
+      # - name: Setup tmate session
+      #   if: ${{ always() }}
+      #   uses: mxschmitt/action-tmate@v3
       - name: Run the test
         timeout-minutes: 120
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
