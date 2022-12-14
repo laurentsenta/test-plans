@@ -120,8 +120,17 @@ export async function buildTestplans(versions: Array<Version>): Promise<TestPlan
                 security: "quic",
             }
         }]
+    })));
 
-    })))
+  const bis = [
+    ...testPlans,
+    ...testPlans.map((testPlan) => {
+      return {
+        ...testPlan,
+        name: testPlan.name + " (bis)",
+      };
+    }),
+  ];
 
-    return { testPlans }
+  return { testPlans: bis };
 }
