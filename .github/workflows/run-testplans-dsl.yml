@@ -52,6 +52,7 @@ jobs:
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: cat results.csv >> $GITHUB_STEP_SUMMARY
       - name: exit based on results
+        working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: |
           if grep -q -E '(fail|cancel)' results.csv; then
             exit 1
