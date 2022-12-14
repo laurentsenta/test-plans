@@ -41,6 +41,9 @@ jobs:
       - name: Build images
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
         run: make
+      - name: Setup tmate session
+        if: ${{ always() }}
+        uses: mxschmitt/action-tmate@v3
       - name: Run the test
         timeout-minutes: 120
         working-directory: ./test-plans/${{ env.TEST_PLAN_DIR }}/
@@ -50,7 +53,7 @@ jobs:
         run: cat results.csv >> $GITHUB_STEP_SUMMARY
       - name: exit based on results
         run: |
-          if grep -q -E '(fail|cancel)' result.csv; then
+          if grep -q -E '(fail|cancel)' results.csv; then
             exit 1
           fi
       - uses: actions/upload-artifact@v3
