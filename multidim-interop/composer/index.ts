@@ -122,15 +122,16 @@ export async function buildTestplans(versions: Array<Version>): Promise<TestPlan
         }]
     })));
 
-  const bis = [
-    ...testPlans,
-    ...testPlans.map((testPlan) => {
-      return {
-        ...testPlan,
-        name: testPlan.name + " (bis)",
-      };
-    }),
-  ];
+  //   const bis = [
+  //     ...testPlans,
+  //     ...testPlans.map((testPlan) => {
+  //       return {
+  //         ...testPlan,
+  //         name: testPlan.name + " (bis)",
+  //       };
+  //     }),
+  //   ];
 
-  return { testPlans: bis };
+  //   return { testPlans: bis };
+    return { testPlans };
 }
