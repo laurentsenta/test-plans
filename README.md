@@ -1,6 +1,6 @@
 # Testground test plans for libp2p
 
-[![Interop Dashboard](https://github.com/libp2p/test-plans/actions/workflows/dashboard.yml/badge.svg?branch=master)](https://github.com/laurentsenta/test-plans/actions/runs/3709022868/attempts/1#summary-10129507830)
+[![Interop Dashboard](https://github.com/libp2p/test-plans/actions/workflows/dashboard.yml/badge.svg?branch=master)](https://github.com/laurentsenta/test-plans/actions/runs/3717470680/attempts/1#summary-10152088106)
 
 [![Made by Protocol Labs](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://protocol.ai)
 ![Go version](https://img.shields.io/badge/go-%3E%3D1.14.0-blue.svg?style=flat-square)
